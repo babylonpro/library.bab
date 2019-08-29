@@ -48,6 +48,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        //custom not found messages
         if ($exception instanceof ModelNotFoundException) {
             return response()->json([
                 'error' => __('message.error_data_not_found')

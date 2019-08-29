@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "e0b3e9aa-bbc9-4a4d-b8f4-9c481602b012",
+		"name": "library.bab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "routes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://library.bab/api/",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "author get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://library.bab/api/authors/2",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						"authors",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "author del",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://library.bab/api/authors/1",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						"authors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "author get books",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Ya",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://library.bab/api/authors/85/books",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						"authors",
+						"85",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "author add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Пушкин",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://library.bab/api/authors",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						"authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://library.bab/api/books/400",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						"books",
+						"400"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book del",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://library.bab/api/books/531",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						"books",
+						"531"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book giveout",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://library.bab/api/books/400/giveout/true",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						"books",
+						"400",
+						"giveout",
+						"true"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Сказочка \"Теремок\"",
+							"type": "text"
+						},
+						{
+							"key": "isbn",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "author_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://library.bab/api/books",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book find",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Сказочка \"Теремок\"",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://library.bab/api/books/find",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						"books",
+						"find"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
