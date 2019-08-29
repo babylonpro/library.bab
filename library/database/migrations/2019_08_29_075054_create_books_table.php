@@ -17,7 +17,7 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('isbn');
-            $table->boolean('is_giveout');
+            $table->boolean('is_giveout')->default(false);
             $table->unsignedInteger('author_id');
             $table->timestamps();
         });
