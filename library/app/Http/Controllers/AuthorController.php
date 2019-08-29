@@ -14,7 +14,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        return Author::all();
     }
 
     /**
@@ -35,7 +35,8 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $author = Author::create($request->all());
+        return $author;
     }
 
     /**
@@ -46,7 +47,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        //
+        return $author;
     }
 
     /**
@@ -69,7 +70,7 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
-        //
+        return response()->json([], 405);
     }
 
     /**
@@ -80,6 +81,8 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        $author->books()->delete();
+        $author->delete();
+        return response()->json([], 204);
     }
 }

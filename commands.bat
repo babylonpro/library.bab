@@ -17,3 +17,5 @@ php artisan make:seeder BooksTableSeeder
 php artisan make:factory BookFactory --model=Book
 
 php artisan db:seed
+
+php artisan make:middleware ForceJsonResponse

@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/', function () {
+
 });
+
+Route::fallback(function(){
+    return response()->json([
+        'error' => __('message.error_not_found')
+    ], 404);
+});
+
+Route::apiResource('/authors', AuthorController::class);
