@@ -86,6 +86,11 @@ class AuthorController extends Controller
         return response()->json([], 204);
     }
     
+    /**
+     * Show all Books of the specified Author
+     * @param Author $author
+     * @return \Illuminate\Http\Response
+     */
     public function books(Author $author) 
     {
         return $author->books()->get();

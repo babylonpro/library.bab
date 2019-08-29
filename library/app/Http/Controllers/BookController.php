@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Author;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -14,7 +15,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        return Book::all();
     }
 
     /**
@@ -35,7 +36,9 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $author = Author::findOrFail($request->author_id);
+        $book = Book::create($request->all());
+        return response()->json($book, 201);
     }
 
     /**
@@ -46,7 +49,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        return $book;
     }
 
     /**
@@ -69,7 +72,7 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        return response()->json([], 405);
     }
 
     /**
@@ -80,6 +83,29 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return response()->json([], 204);
+    }
+    
+    /**
+     * Set Book giveout status
+     * @param Book $book
+     * @param bool $status
+     * @return Illuminate\Http\Response
+     */
+    public function giveout(Book $book, bool $status)
+    {
+        $book->update(['is_giveout' => $status]);
+        return response()->json($book, 201);
+    }
+    
+    /**
+     * Show Books where find by title
+     * @param \Illuminate\Http\Request $request
+     * @return Illuminate\Http\Response
+     */
+    public function find(Request $request)
+    {
+        return Book::where('title', 'LIKE', "%$request->title%")->get();
     }
 }

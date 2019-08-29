@@ -17,6 +17,10 @@ Route::any('/', function () {
      \Artisan::call('route:list');
      return response(\Artisan::output(), 200)->header('Content-Type', 'text/plain');
 });
-
+// Author Routes
 Route::apiResource('authors', AuthorController::class);
 Route::get('authors/{author}/books', 'AuthorController@books');
+// Book Routes
+Route::apiResource('books', BookController::class);
+Route::put('books/{book}/giveout/{status}', 'BookController@giveout');
+Route::post('books/find', 'BookController@find');
