@@ -36,7 +36,7 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         $author = Author::create($request->all());
-        return $author;
+        return response()->json($author, 201);
     }
 
     /**
@@ -84,5 +84,10 @@ class AuthorController extends Controller
         $author->books()->delete();
         $author->delete();
         return response()->json([], 204);
+    }
+    
+    public function books(Author $author) 
+    {
+        return $author->books()->get();
     }
 }

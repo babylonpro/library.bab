@@ -13,14 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-
+Route::any('/', function () {
+     \Artisan::call('route:list');
+     return response(\Artisan::output(), 200)->header('Content-Type', 'text/plain');
 });
 
-Route::fallback(function(){
-    return response()->json([
-        'error' => __('message.error_not_found')
-    ], 404);
-});
-
-Route::apiResource('/authors', AuthorController::class);
+Route::apiResource('authors', AuthorController::class);
+Route::get('authors/{author}/books', 'AuthorController@books');
