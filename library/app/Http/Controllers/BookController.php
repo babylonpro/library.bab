@@ -108,6 +108,6 @@ class BookController extends Controller
      */
     public function find(Request $request)
     {
-        return Book::where('title', 'LIKE', $request->title . '%')->get();
+        return Book::like('title', $request->title)->get();
     }
 }

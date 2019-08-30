@@ -14,7 +14,7 @@ class AuthorsTableSeeder extends Seeder
     {
         Author::truncate();
 
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create('ru_RU');
 
         for ($i = 0; $i < 100; $i++) {
             Author::create([
