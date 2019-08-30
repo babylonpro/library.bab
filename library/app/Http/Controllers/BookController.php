@@ -25,7 +25,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        //not implement
     }
 
     /**
@@ -60,7 +60,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        //not implement
     }
 
     /**
@@ -72,7 +72,9 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        return response()->json([], 405);
+        Author::findOrFail($request->author_id);
+        $book->update($request->all());
+        return $book;
     }
 
     /**
@@ -84,7 +86,7 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return response()->json([], 204);
+        return response()->json(null, 204);
     }
     
     /**
@@ -96,7 +98,7 @@ class BookController extends Controller
     public function giveout(Book $book, bool $status)
     {
         $book->update(['is_giveout' => $status]);
-        return response()->json($book, 201);
+        return $book;
     }
     
     /**
@@ -106,6 +108,6 @@ class BookController extends Controller
      */
     public function find(Request $request)
     {
-        return Book::where('title', 'LIKE', "%$request->title%")->get();
+        return Book::where('title', 'LIKE', $request->title . '%')->get();
     }
 }

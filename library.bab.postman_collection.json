@@ -65,12 +65,12 @@
 				"header": [
 					{
 						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
 					}
 				],
 				"url": {
-					"raw": "http://library.bab/api/authors/1",
+					"raw": "http://library.bab/api/authors/5",
 					"protocol": "http",
 					"host": [
 						"library",
@@ -79,7 +79,7 @@
 					"path": [
 						"api",
 						"authors",
-						"1"
+						"5"
 					]
 				}
 			},
@@ -116,7 +116,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://library.bab/api/authors/85/books",
+					"raw": "http://library.bab/api/authors/5/books",
 					"protocol": "http",
 					"host": [
 						"library",
@@ -125,7 +125,7 @@
 					"path": [
 						"api",
 						"authors",
-						"85",
+						"5",
 						"books"
 					]
 				}
@@ -169,6 +169,49 @@
 			"response": []
 		},
 		{
+			"name": "author update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Пушкин3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://library.bab/api/authors/55",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						"authors",
+						"55"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "book get",
 			"request": {
 				"method": "GET",
@@ -180,7 +223,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://library.bab/api/books/400",
+					"raw": "http://library.bab/api/books/22",
 					"protocol": "http",
 					"host": [
 						"library",
@@ -189,7 +232,7 @@
 					"path": [
 						"api",
 						"books",
-						"400"
+						"22"
 					]
 				}
 			},
@@ -207,7 +250,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://library.bab/api/books/531",
+					"raw": "http://library.bab/api/books/26",
 					"protocol": "http",
 					"host": [
 						"library",
@@ -216,7 +259,7 @@
 					"path": [
 						"api",
 						"books",
-						"531"
+						"26"
 					]
 				}
 			},
@@ -292,6 +335,64 @@
 					"path": [
 						"api",
 						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Book Title",
+							"type": "text"
+						},
+						{
+							"key": "isbn",
+							"value": "987654321",
+							"type": "text"
+						},
+						{
+							"key": "author_id",
+							"value": "55",
+							"type": "text"
+						},
+						{
+							"key": "is_giveout",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://library.bab/api/books/22",
+					"protocol": "http",
+					"host": [
+						"library",
+						"bab"
+					],
+					"path": [
+						"api",
+						"books",
+						"22"
 					]
 				}
 			},

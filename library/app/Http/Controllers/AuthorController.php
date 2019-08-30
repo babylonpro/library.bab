@@ -24,7 +24,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        //not implement
     }
 
     /**
@@ -58,7 +58,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        //not implement
     }
 
     /**
@@ -70,7 +70,8 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
-        return response()->json([], 405);
+        $author->update($request->all());
+        return $author;
     }
 
     /**
@@ -83,7 +84,7 @@ class AuthorController extends Controller
     {
         $author->books()->delete();
         $author->delete();
-        return response()->json([], 204);
+        return response()->json(null, 204);
     }
     
     /**
